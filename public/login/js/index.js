@@ -1,3 +1,4 @@
+console.log("Hello");
 $(document).ready(function(){    
     $('#loginBtn').click(function(){
         console.log('Hello');
