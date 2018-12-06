@@ -10,7 +10,8 @@ app.get('/',function(req,res){
 
 app.post('/login', function(req, res){
     res.header("Access-Control-Allow-Credentials", "true"); 
-    console.log("Hello");
+    res.send("This is a Login Page");
+    console.log("This is a Login Page");
 });
 
 app.listen(8080);
