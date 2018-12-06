@@ -1,18 +1,28 @@
-console.log("Hello");
 $(document).ready(function(){    
     $('#loginBtn').click(function(){
-        console.log('Hello');
-        $.ajax({
-            method: "POST",
-            type: "json",
-            url: "localhost:8080/login",
-            data:{
-                username: $('.user').val(),
-                password: $('.pass').val()
-            },
-            success:function(data){
-                console.log("Hello");
-            }
-        });
+        console.log('Login Button Work!');
+        var loginEmail = $("#userInput").val();
+        var loginPassword = $("#passInput").val();
+        if (loginEmail && loginPassword) {
+            console.log("Here is The Info: " + loginEmail + " " + loginPassword);
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080//login',
+                contentType: "application/json",
+                xhrFields: {
+                  withCredentials: true
+                },
+                data: JSON.stringify({
+                  email: loginEmail,
+                  password: loginPassword
+                }),
+                dataType: 'json',
+                success: function (response) {
+                    console.log("Ajax work");
+                }
+            });
+        }else{
+            console.log("No Info");
+        }
     });
 });
