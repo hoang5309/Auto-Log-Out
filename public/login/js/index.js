@@ -7,7 +7,7 @@ $(document).ready(function(){
             console.log("Here is The Info: " + loginEmail + " " + loginPassword);
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:8080//login',
+                url: 'http://localhost:8080/login',
                 contentType: "application/json",
                 xhrFields: {
                   withCredentials: true
