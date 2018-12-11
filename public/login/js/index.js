@@ -57,4 +57,5 @@ $(document).ready(function(){
     $('#signUpPage').click(function(){
         window.location.href = 'http://localhost:8080/client/signup'
     });
+    
 });
