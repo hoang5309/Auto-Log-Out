@@ -1,6 +1,9 @@
 const con = require('./../connection');
+const logout = require('./logout');
+var here = 0;
 
-exports.login = function(req,res){
+function login(req,res){
+    var startTime = setInterval(startCount, 6000);
     var email    = req.body.email;
     var password = req.body.password;
     con.query('SELECT * FROM users WHERE email = ?',[email], function (error, results, fields){
@@ -26,4 +29,26 @@ exports.login = function(req,res){
             }
         }
     });
+}
+
+function startCount(){
+    here++;
+    console.log("start Count:" + here);
+    if(here > 2){        
+        console.log("Call Logout");
+        logout.logout;
+    }
+}
+
+function reset(req, res){
+    here = 0;
+    res.send({
+        "ping": here, 
+        "status": "reseted"
+    })
+}
+
+module.exports = {
+    reset: reset,
+    login: login 
 }

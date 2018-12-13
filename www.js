@@ -4,6 +4,7 @@ var path        = require("path");
 var bodyParser  = require('body-parser');
 var login       = require("./handler/login");
 var signup      = require("./handler/signup");
+var logout      = require("./handler/logout");
 
 app.use("/assets", express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +28,7 @@ app.get('/client/signup',function(req,res){
 
 app.post('/login' ,login.login);
 app.post('/signup',signup.signup);
+app.post('/logout',logout.logout);
+app.post('/reset', login.reset);
 
 app.listen(8080);
-console.log(__dirname);
