@@ -1,5 +1,6 @@
 const con = require('./../connection');
 const logout = require('./logout');
+const log = require("./log");
 var here = 0;
 
 function login(req,res){
@@ -18,13 +19,13 @@ function login(req,res){
             if(results.length >0){
               console.log(results[0].password);
               if(results[0].password == password){
-                console.log("Password Good");
+                    log.write("good pass");
                 res.send({
-                  "code":200,
-                  "success":"login sucessfull"
+                    "code":200,
+                    "success":"login sucessfull"
                 });
               }else{
-                  console.log("Bad Pass");
+                    log.write("bad pass");
               }
             }
         }
